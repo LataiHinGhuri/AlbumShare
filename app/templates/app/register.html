@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register</title>
+	<meta charset="utf-8">
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'app/style1.css' %}">
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	
+	
+
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js'></script>
+	
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+	<div align="middle">
+	<a href="{% url 'app:home' %}">
+	<div class="row alert alert-info" ><h1><b>Photo Album Share</b></h1></div></a>
+	<div class="row" ><br></div>
+	<div class="row" ><br></div>
+	<form action="{% url 'app:register' %}" method="POST">
+		{% csrf_token %}
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-1 well well-sm">
+			    <label class=" " for="register" ><b align='center' >First Name:</b></label>
+			</div>
+			<div class="col-md-3" >
+			    <input type="text" class="form-control col-md-3" name="firstname" id="firstname" value="">
+			 </div>
+			<div class="col-md-4"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-1 well well-sm">
+			    <label class=" " for="register" ><b align='center' >Last Name:</b></label>
+			</div>
+			<div class="col-md-3" >
+			    <input type="text" class="form-control col-md-3" name="lastname" id="lastname" value="">
+			 </div>
+			<div class="col-md-4"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-1 well well-sm">
+			    <label class=" " for="login" ><b align='center' >Email:</b></label>
+			</div>
+			<div class="col-md-3" >
+			    <input type="text" class="form-control col-md-3" name="email" id="email" value="">
+			 </div>
+			<div class="col-md-4"></div>
+		</div>
+		{% if error == 'user' %}
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class='col-md-4'> ****username: {{name}} is already used</div>
+		</div>
+		{% endif %}
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-1 well well-sm">
+			    <label class=" " for="login" ><b align='center' >Username:</b></label>
+			</div>
+			<div class="col-md-3" >
+			    <input type="text" class="form-control col-md-3" name="username" id="username" value="">
+			 </div>
+			<div class="col-md-4"></div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-1 well well-sm">
+			    <label class="" for="login" ><b align='center' >Password:</b></label>
+			</div>
+			<div class="col-md-3" >
+			    <input type="password" class="form-control col-md-3" name="password" id="password" value="">
+			    	
+			 </div>
+			<div class="col-md-4"></div>
+		</div>
+		{% if error == 'mismatched' %}
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class='col-md-4'> ****password {{error}}</div>
+		</div>
+		{% endif %}
+
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-1 well well-sm">
+			    <label class="" for="register" ><b align='center' >Confirm Password:</b></label>
+			</div>
+			<div class="col-md-3" >
+			    <input type="password" class="form-control col-md-3" name="confirm_password" id="confirm_password" value="">
+			    	
+			 </div>
+			<div class="col-md-4"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-5"></div>
+			    <button type="submit" class="btn btn-primary col-md-2"><span class="glyphicon glyphicon-ok-sign" ></span> Register</button>
+			<div class="col-md-4"></div>
+		</div>
+		
+		
+		
+	</form>
+	</div>
+</body>
+</html>

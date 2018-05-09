@@ -1,0 +1,62 @@
+{% extends 'app/album_base.html' %}
+
+{% block albumbody %}
+
+	<form action="" method="POST">
+		{% csrf_token %}
+  		<div class="form-group">
+    		<label class="col-md-2" for="search"><big>Search Album(UserName):</big></label>
+    		<div class="col-md-4">
+    			<input type="search" class="form-control" id="search" name="search_user" value="user name">
+    		</div>
+    		<button type="submit" class="btn btn-primary col-md-1">Search</button>
+  		</div>
+	</form>
+	<div class="col-md-4"></div>
+	<div class="col-md-10"><br></div>
+	<div class="col-md-2"></div>
+	<div class="col-md-10 alert alert-info">
+		<h3 align="center" ><big><b>Album List</b></big></h3>
+	</div>
+
+	<div class="col-md-12"><br></div>
+
+	<!-- This is Album colums for albumlist-->
+	
+	<div class="col-md-2"><br></div>
+	<div class="col-md-2 alert alert-success">
+		<h4 align="center" ><b>Post ID</b></h4>
+	</div>
+	<div class="col-md-2 alert alert-success">
+		<h4 align="center" ><b>Owner</b></h4>
+	</div>
+	<div class="col-md-4 alert alert-success">
+		<h4 align="center" ><b>Title</b></h4>
+	</div>
+	<div class="col-md-2 alert alert-success">
+		<h4 align="center" ><b>Date and Time</b></h4>
+	</div>
+	
+
+	{% for album in all_albums %}
+		<div class="col-md-2"><br></div>
+		<a href="/album/{{album.id}}/albumpassword/">
+			<div class="col-md-2 well well-sm">
+				<h4 align="center" >{{album.id}}</h4>
+			</div>
+		</a>
+		<div class="col-md-2 well well-sm">
+			<h4 align="center" ><a href="#">{{album.owner}}</a></h4>
+		</div>
+		<a href="/album/{{album.id}}/albumpassword/">
+			<div class="col-md-4 well well-sm">
+				<h4 align="center" >{{album.album_title}}</h4>
+			</div>
+		</a>
+		<div class="col-md-2 well well-sm">
+			<h4 align="center" ><a href="#">{{album.post_date}}</a></h4>
+		</div>
+	{% endfor %}	
+
+
+{% endblock %}

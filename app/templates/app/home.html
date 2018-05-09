@@ -1,0 +1,36 @@
+{% extends 'app/base.html' %}
+{% load staticfiles %}
+{% block body %}
+	<!--This is for homr page --> 
+	
+	<div class="container-fluid">
+
+		<div class="row">
+			<div class="col-md-1 "></div>
+			<div class="col-md-10 well">
+				<h1 align="center"><b>Photo Album Share</b></h1>
+				<p>Now share your photos in "Photo Album Share" with more precisely and security with your friends and family. No one will see your photo unless you tell them the album password.This facility of photo sharing made this site better for you.
+				<dl>
+					<dt>The situation when this site help you</dt>
+						<dd>- When you upload an album on a social site, it is open for all of your friend. But here you can share albums with selected ones.</dd>
+						<dd>- Any time you can change password, delete album, add photo to the album. </dd>
+				</dl>  
+				</p>
+			</div>
+			<div class="col-md-1"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<div class="well well-sm">
+					<h3>
+						example:
+					</h3>
+					<img src="{% static 'app/images/homephoto.jpg' %}" class="img-responsive center-block img-rounded" />
+				</div>
+			</div>
+			<div class="col-md-2"></div>
+		</div>
+	</div>
+
+{% endblock %}
